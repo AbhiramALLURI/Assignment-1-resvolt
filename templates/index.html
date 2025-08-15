@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <title>Data Analysis Report</title>
+</head>
+<body>
+    <h1>Data Visualization and Analysis</h1>
+
+    <h2>Moving Averages Plot</h2>
+    <img src="data:image/png;base64,{{ plot_data }}" alt="Voltage Plot">
+
+    <h2>Peaks in the Data</h2>
+    <pre>{{ peak_data }}</pre>
+
+    <h2>Lows in the Data</h2>
+    <pre>{{ low_data }}</pre>
+
+    <h2>Points Where Value Was Below 20</h2>
+    <pre>{{ below_20 }}</pre>
+
+    <h2>Instances of Accelerating Downward Slope</h2>
+    <pre>{{ accel_down }}</pre>
+</body>
+</html>
