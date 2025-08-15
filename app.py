@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
 from scipy.signal import find_peaks
-import plotly.express as px
-import json
+
 
 app = Flask(__name__)
 
