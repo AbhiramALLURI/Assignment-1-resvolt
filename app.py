@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
 from scipy.signal import find_peaks
+import plotly.express as px
+import json
 
 app = Flask(__name__)
 
@@ -16,6 +18,7 @@ def home():
     df['Timestamp'] = pd.to_datetime(df['Timestamp'], format='%d/%m/%y %H:%M')
     df.set_index('Timestamp', inplace=True)
 
+    
     # Generate the main plot
     plt.figure(figsize=(15, 8))
     plt.plot(df.index, df['Values'], label='Original Value', color='cornflowerblue')
