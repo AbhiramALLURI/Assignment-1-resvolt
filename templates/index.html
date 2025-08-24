@@ -1,24 +1,138 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Data Analysis Report</title>
+  <meta charset="UTF-8">
+  <title>Data Visualization Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <!-- Icon library for subtle visual cues -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(180deg, #e4eafc 0%, #a0c4ff 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #22255a;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 12px 32px rgba(120,170,255,0.24);
+      animation: fadein 1s;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(32px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    h1 {
+      text-align: center;
+      color: #5179e0;
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    h2 {
+      color: #4361ee;
+      margin-top: 40px;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #e4eafc;
+      padding-bottom: 4px;
+    }
+    .plot-box {
+      text-align: center;
+      padding: 28px 0;
+    }
+    .plot-box img {
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #a0c4ff88;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.18s;
+      background: #f5f7ff;
+    }
+    .plot-box img:hover {
+      transform: scale(1.018);
+    }
+    .data-section {
+      background: #f5f7ff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #a0c4ff44;
+      padding: 16px 20px;
+      margin: 22px 0;
+      font-size: 1.07rem;
+      overflow-x: auto;
+      border-left: 4px solid #4361ee22;
+    }
+    table, pre {
+      width: 100%;
+      font-size: .95rem;
+      background: #e5edfc;
+      border-radius: 6px;
+      padding: 8px;
+      box-sizing: border-box;
+      color: #2b2d42;
+      margin: 8px 0;
+      border: 1px solid #a0c4ff66;
+    }
+    /* tag styles for titles */
+    .tag {
+      background: #4361ee;
+      color: #fff;
+      padding: 3px 12px;
+      font-size: 1rem;
+      border-radius: 16px 16px 0 16px;
+      margin-right: 10px;
+      display: inline-block;
+      margin-bottom: 4px;
+      box-shadow: 0 1px 6px #5179e044;
+      letter-spacing: .8px;
+    }
+    /* Responsive design */
+    @media (max-width: 720px) {
+      .container {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Data Visualization and Analysis</h1>
-
-    <h2>Moving Averages Plot</h2>
-    <img src="data:image/png;base64,{{ plot_data }}" alt="Voltage Plot">
-
-    <h2>Peaks in the Data</h2>
-    <pre>{{ peak_data }}</pre>
-
-    <h2>Lows in the Data</h2>
-    <pre>{{ low_data }}</pre>
-
-    <h2>Points Where Value Was Below 20</h2>
-    <pre>{{ below_20 }}</pre>
-
-    <h2>Instances of Accelerating Downward Slope</h2>
-    <pre>{{ accel_down }}</pre>
+  <div class="container">
+    <h1><i class="fas fa-chart-line"></i> Assignment Data Visualization Dashboard</h1>
+    <div class="plot-box">
+      <img src="data:image/png;base64,{{ plot_data }}" alt="Main Data Plot">
+    </div>
+    <h2><span class="tag">Peaks</span> Detected Peak Values</h2>
+    <div class="data-section">
+      <pre>{{ peak_data }}</pre>
+    </div>
+    <h2><span class="tag">Lows</span> Detected Low Values</h2>
+    <div class="data-section">
+      <pre>{{ low_data }}</pre>
+    </div>
+    <h2><span class="tag">Alerts</span> Values Below 20</h2>
+    <div class="data-section">
+      <pre>{{ below_20 }}</pre>
+    </div>
+    <h2><span class="tag">Acceleration Down</span> Slope Drop Points</h2>
+    <div class="data-section">
+      <pre>{{ accel_down }}</pre>
+    </div>
+    <footer style="text-align:center; margin-top:40px; color:#888;font-size:1.07rem;">
+      <hr style="margin-bottom:20px;">
+      &copy; 2025 | Created by Your Name | <i class="fa-solid fa-flask"></i> Data Visualization Assignment
+    </footer>
+  </div>
 </body>
 </html>
